@@ -1,0 +1,14 @@
+<%-include('../cabecalho.ejs')%>
+<h1>Adicionar Aluno</h1>
+<div style="margin-bottom: 24px;">
+    <a href="/aluno/lst" class="btn">Listar</a>
+</div>
+    <form method="post">
+        <label>Digite o nome:</label>
+            <input type="text" name="nome"><br> 
+        <label>Digite a matrícula:</label>
+            <input type="text" name="matricula"><br>
+            <button type="submit" class="btn submit">Cadastrar</button>
+    </form>
+
+<%-include('../rodape.ejs')%>

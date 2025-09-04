@@ -1,0 +1,30 @@
+<%-include('../cabecalho.ejs')%>
+    <h1 style="text-align:center; margin-bottom:32px; color:#333;">Curso</h1>
+    <a href="/curso/add" class="btn add" style="margin-bottom:32px;">Adicionar curso</a>
+    <table class="curso-table" style="margin-top:24px;">
+        <thead>
+            <tr style="background:#e9ecef; color:#333;">
+                <th>Nome</th>
+                <th>Duração</th>
+                <th>Área</th>
+                <th>Nível</th>
+                <th>Ano de Fundação</th>
+                <th colspan="2" style="text-align:center;">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        <%for (const{nome, duracao, area, nivel, anoFundacao, id} of Cursos) {%>
+        <tr>
+            <td><%=nome%></td>
+            <td><%=duracao%></td>
+            <td><%=area%></td>
+            <td><%=nivel%></td>
+            <td><%=anoFundacao%></td>
+            <td><a href="/curso/edt/<%=id%>" class="btn edit"><i class="fa-solid fa-pen">‌</i>&nbsp;Editar curso</a></td>
+            <td><a href="/curso/del/<%=id%>" class="btn delete" onclick="return confirm('Tem certeza que deseja excluir este curso?')"><i class="fa-solid fa-box-archive">‌</i>&nbsp;Excluir curso</a></td>
+        </tr>
+        <%}%>
+        </tbody>
+    </table>
+    
+<%-include('../rodape.ejs')%>

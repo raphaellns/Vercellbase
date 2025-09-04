@@ -1,10 +1,10 @@
 //importar o Model
-import Aluno from '../models/aluno.js'
+import Categoria from '../models/Categoria.js'
 
-export default class AlunoController
+export default class CategoriaController
 {
 
-    constructor(caminhoBase = 'aluno/')
+    constructor(caminhoBase = 'Categoria/')
     {
         this.caminhoBase = caminhoBase
     
@@ -13,17 +13,15 @@ export default class AlunoController
             res.render(caminhoBase + "add")
         }
             this.Excluir = async(req, res)=>{
-                await Aluno.findByIdAndDelete(req.params.id)
+                await Categoria.findByIdAndDelete(req.params.id)
                 res.redirect('/' + this.caminhoBase + 'lst')
             }
         this.add = async(req, res)=>
         {
-            //cria o aluno
-            await Aluno.create
+            await Categoria.create
             (
                 {
-                    nome: req.body.nome,
-                    matricula: req.body.matricula
+                    nome: req.body.nome
                 }
 
             )
@@ -31,19 +29,19 @@ export default class AlunoController
         }
         this.list = async(req, res)=>
         {
-            const resultado = await Aluno.find({})
-            res.render(caminhoBase + 'lst', {Alunos:resultado})
+            const resultado = await Categoria.find({})
+            res.render(caminhoBase + 'lst', {Categorias:resultado})
         }
         this.openEdt = async(req, res)=>
         {
             //passar quem eu quero editar
             const id = req.params.id
-            const aluno = await Aluno.findById(id)
-            console.log(aluno)
-            res.render(caminhoBase + 'edt', {Aluno:aluno})  
+            const cat = await Categoria.findById(id)
+            console.log(cat)
+            res.render(caminhoBase + 'edt', {Categoria:cat})  
         }
         this.Edt = async(req, res)=>{
-            await Aluno.findByIdAndUpdate(req.params.id, req.body)
+            await Categoria.findByIdAndUpdate(req.params.id, req.body)
             res.redirect('/' + caminhoBase + 'lst')
         }
     }

@@ -1,27 +1,152 @@
+select {
+  background-color: #e9ecef;
+  color: #333;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+select:focus, select:hover {
+  border-color: #aaa !important;
+  box-shadow: none;
+}
+
+input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="password"]:focus,
+input[type="text"]:hover, input[type="number"]:hover, input[type="email"]:hover, input[type="password"]:hover {
+  border-color: #006400 !important;
+  box-shadow: 0 2px 0 0 #006400;
+}
+label {
+  color: #333;
+  font-weight: 600;
+}
+input[type="text"], input[type="number"], input[type="email"], input[type="password"] {
+  background-color: #e9ecef;
+  color: #333;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+}
+.aluno-table td {
+  border-bottom: 2px solid #006400 !important; /* Verde escuro */
+}
+/* Visual aprimorado para formulários de edição */
+.form-visual {
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.12);
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+}
+.curso-table th {
+  background-color: #fff;
+  color: #555;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #006400;
+  padding: 16px 10px;
+}
+/* Estilos da Tabela de Alunos (igual Cursos) */
+.aluno-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+  overflow: hidden;
+}
+.aluno-table th {
+  background-color: #fff;
+  color: #555;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-bottom: 2px solid #006400;
+  padding: 16px 10px;
+}
+.aluno-table td {
+  vertical-align: middle;
+  padding: 14px 10px;
+  border-bottom: 1px solid #e2e6ea;
+}
+.aluno-table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+.aluno-table tr:hover {
+  background-color: #e2e6ea;
+}
+form {
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.12);
+  border-radius: 12px;
+  padding: 24px;
+  background: #fff;
+}
+.form-group label,
+  .form-group input,
+  .form-group select {
+    margin-bottom: 4px;
+    display: block;
+    width: 400px;
+    max-width: 100%;
+  }
+
+form label,
+form input,
+form select {
+  margin-bottom: 4px;
+  display: block;
+}
+  table th {
+    padding: 16px 10px;
+    border-bottom: 2px solid #006400;
+  }
+
+.btn {
+  margin-bottom: 16px;
+}
+  .btn.submit {
+    background-color: #007bff;
+    color: #fff;
+  }
+  .btn.add {
+    background-color: #28a745;
+    color: #fff;
+  }
+.btn.delete {
+  background-color: #dc3545;
+  color: #fff;
+}
 /* Estilos Gerais */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #14532d; /* verde escuro */
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
   
   .footer{
     padding: 20px;
   }
   
   .container {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 80%;
-    max-width: 100%;
-  }
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 100%;
+  border:8px solid #28a745; /* verde claro dos botões HOME, ALUNOS, CURSOS */
+  box-shadow: 0 0 30px 2px rgba(0,0,0,1); /* sombra preta totalmente escura após a borda */
+    }
   
   h1 {
     text-align: center;
@@ -83,15 +208,13 @@ body {
     color: #000;
   }
   
-  .btn.add {
-    color: #fff;
-    background-color:#1c0df3
+
+  .btn.edit {
+    background-color: #ffc107;
+    color: #000;
   }
-  
-  .btn.delete {
-    background-color: #dc3545;
-    color: #fff;
-  }
+
+/* Removido para evitar conflito com o vermelho */
   
   .btn.cancelar {
     background-color: #6c757d;
@@ -105,8 +228,13 @@ body {
   /* Estilos da Tabela */
   table {
     width: 100%;
-    border-collapse: collapse;
+    border-collapse: separate;
+    border-spacing: 0;
     margin-top: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+    overflow: hidden;
   }
   
   table th, table td {
@@ -115,12 +243,27 @@ body {
     border-bottom: 1px solid #ddd;
   }
   
-  table th {
-    background-color: #f8f9fa;
+  table td {
+    vertical-align: middle;
+    padding: 14px 10px;
+    border-bottom: 1px solid #e2e6ea;
+  
+    border-bottom: 2px solid #006400;
   }
   
+  table tr:nth-child(even) {
+    background-color: #f8f9fa;
+  }
   table tr:hover {
-    background-color: #f1f1f1;
+    background-color: #e2e6ea;
+  
+    vertical-align: middle;
+    padding: 14px 10px;
+    border-bottom: 1px solid #e2e6ea;
+  }
+  
+  table th {
+    padding: 16px 10px;
   }
   
   .search

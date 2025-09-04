@@ -2,7 +2,10 @@ import express from 'express';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import routes from '../routes/route.js'; // rotas externas
+import alunoRoutes from './routes/AlunoRoutes.js';
+import cursoRoutes from './routes/CursoRoutes.js';
 import { createServer } from 'http';
+
 
 const app = express();
 
