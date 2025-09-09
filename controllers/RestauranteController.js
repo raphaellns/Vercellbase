@@ -50,5 +50,12 @@ export default class RestauranteController
             await Prato.findByIdAndUpdate(req.params.id, req.body)
             res.redirect('/' + caminhoBase + 'lst')
         }
+
+        this.find = async(req, res) =>{
+
+            const filtro = req.body.prato
+            const resultado = await Prato.find({nome: { $regex: filtro, $options: "i" }})
+            res.render(caminhoBase + 'lst', {Pratos:resultado})
+        }
     }
 }

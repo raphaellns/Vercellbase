@@ -15,6 +15,12 @@
             </tr>
         </thead>
         <tbody>
+
+            <form method="post">
+                <label>Nome do prato:</label>
+                <input type="text" name="prato"><br>
+                <button type="submit" class="btn submit">Procurar</button>
+            </form>
             <%for (const{nome, categoria, preco, descricao, tempoDePreparo, disponivel, ingredientes, id} of
                 Pratos) {%>
                 <tr>
