@@ -2,10 +2,10 @@ import express from 'express'
 const router = express.Router()
 
 
-import RestauranteController from '../controllers/RestauranteController.js'
-const controle = new RestauranteController()
+import FabricanteController from '../controllers/FabricanteController.js'
+const controle = new FabricanteController()
 
-const caminhobase = 'Restaurante/'
+const caminhobase = 'Fabricante/'
 
 router.get('/' + caminhobase + 'add', controle.openAdd)
 router.post('/' + caminhobase + 'add', controle.add)
