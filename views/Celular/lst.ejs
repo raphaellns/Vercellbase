@@ -21,7 +21,7 @@
                 <input type="text" name="celular"><br>
                 <button type="submit" class="btn submit">Procurar</button>
             </form>
-            <%for (const{nome, modelo, sistema, armazenamento, preco, fabricante, id} of
+            <%for (const{nome, modelo, sistema, armazenamento, preco, fabricante, foto, id} of
                 Celulares) {%>
                 <tr>
                     <td>
@@ -45,6 +45,7 @@
                     <td>
                         <%=id%>
                     </td>
+                    <td><img src="<%=foto%>" width="150" height="150" name="foto"></td>
                     <td><a href="/Celular/edt/<%=id%>" class="btn edit"><i class="fa-solid fa-pen">‌</i>&nbsp;Editar
                             celular</a></td>
                     <td><a href="/Celular/del/<%=id%>" class="btn delete"

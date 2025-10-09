@@ -26,7 +26,8 @@ export default class CelularController
                     sistema: req.body.sistema,
                     armazenamento: req.body.armazenamento,
                     preco: req.body.preco,
-                    fabricante: req.body.fabricante
+                    fabricante: req.body.fabricante,
+                    foto: req.file.buffer
                 }
 
             )
@@ -35,7 +36,21 @@ export default class CelularController
         this.list = async(req, res)=>
         {
             const resultado = await Celular.find({})
-            res.render(caminhoBase + 'lst', {Celulares:resultado})
+
+            const resposta = resultado.map(celular => ({
+            id: celular._id,
+            nome: celular.nome,
+            modelo: celular.modelo,
+            sistema: celular.sistema,
+            armazenamento: celular.armazenamento,
+            preco: celular.preco,
+            fabricante: celular.fabricante,
+            foto: celular.foto && Buffer.isBuffer(celular.foto)
+            ? `data:image/png;base64,${celular.foto.toString('base64')}`
+            : null
+            }));
+
+            res.render(caminhoBase + 'lst', {Celulares:resposta})
         }
         this.openEdt = async(req, res)=>
         {
@@ -56,5 +71,8 @@ export default class CelularController
             const resultado = await Celular.find({nome: { $regex: filtro, $options: "i" }})
             res.render(caminhoBase + 'lst', {Celulares:resultado})
         }
+
+
+        
     }
 }

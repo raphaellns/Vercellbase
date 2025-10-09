@@ -23,6 +23,6 @@ app.set('views', join(__dirname, '/views'));
 app.use(celularRoutes)
 app.use(fabricanteRoutes)
 app.use(routes)
-app.listen(3001)
+app.listen(3000)
 // Exporta o handler compatível com Vercel
 export default app;
