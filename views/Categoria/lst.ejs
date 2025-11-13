@@ -1,0 +1,43 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1 style="text-align:center; margin-bottom:32px; color:#333;">Categoria</h1>
+<a href="/Categoria/add" class="btn add" style="margin-bottom:32px;">Adicionar categoria</a>
+
+<table class="curso-table" style="margin-top:24px;">
+    <thead>
+        <tr style="background:#e9ecef; color:#333;">
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>ID</th>
+            <th colspan="2" style="text-align:center;">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <form method="post">
+            <label>Nome da categoria:</label>
+            <input type="text" name="categoria"><br>
+            <button type="submit" class="btn submit">Procurar</button>
+        </form>
+
+        <% for (const {nome, descricao, id} of Categorias) { %>
+            <tr>
+                <td><%= nome %></td>
+                <td><%= descricao %></td>
+                <td><%= id %></td>
+                <td>
+                    <a href="/Categoria/edt/<%= id %>" class="btn edit">
+                        <i class="fa-solid fa-pen"></i>&nbsp;Editar categoria
+                    </a>
+                </td>
+                <td>
+                    <a href="/Categoria/del/<%= id %>" class="btn delete"
+                        onclick="return confirm('Tem certeza que deseja excluir esta categoria?')">
+                        <i class="fa-solid fa-box-archive"></i>&nbsp;Excluir categoria
+                    </a>
+                </td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<%- include('../rodape.ejs') %>

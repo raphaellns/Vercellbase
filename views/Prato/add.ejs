@@ -1,0 +1,41 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Adicionar Prato</h1>
+
+<div style="margin-bottom: 24px;">
+    <a href="/Prato/lst" class="btn">Listar</a>
+</div>
+
+<div>
+    <form action="/Prato/add" method="post" enctype="multipart/form-data">
+        <label>Nome do prato:</label>
+        <input type="text" name="nome" required><br>
+
+        <label>Descrição:</label>
+        <textarea name="descricao" rows="3" required></textarea><br>
+
+        <label>Preço (R$):</label>
+        <input type="number" name="preco" step="0.01" required><br>
+
+        <label>Categoria:</label>
+<select name="categoria" required>
+    <option value="">--Selecione uma categoria--</option>
+    <% Categorias.forEach(c => { %>
+        <option value="<%= c.nome %>"><%= c.nome %></option>
+    <% }) %>
+</select><br>
+
+
+        <label for="imagem">Imagem do prato:</label>
+        <input type="file" id="imagem" name="imagem" accept="image/*" required><br>
+
+        <label>
+            <input type="checkbox" name="destaque">
+            Marcar como prato em destaque
+        </label><br>
+
+        <button type="submit" class="btn submit">Cadastrar</button>
+    </form>
+</div>
+
+<%- include('../rodape.ejs') %>

@@ -1,0 +1,47 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Editar Garçom</h1>
+<div style="margin-bottom: 24px;">
+    <a href="/Garcom/lst" class="btn">Listar</a>
+</div>
+<div>
+    <form method="post" class="form-visual">
+        <label>ID:</label>
+        <input type="text" name="id" value="<%= Garcon._id %>" disabled><br>
+
+        <label>Nome:</label>
+        <input type="text" name="nome" value="<%= Garcon.nome %>" required><br>
+
+        <label>Telefone:</label>
+        <input type="text" name="telefone" value="<%= Garcon.telefone %>" required><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" value="<%= Garcon.email %>" required><br>
+
+        <label>Turno:</label>
+        <select name="turno" required>
+            <option value="Manhã" <%= Garcon.turno === 'Manhã' ? 'selected' : '' %>>Manhã</option>
+            <option value="Tarde" <%= Garcon.turno === 'Tarde' ? 'selected' : '' %>>Tarde</option>
+            <option value="Noite" <%= Garcon.turno === 'Noite' ? 'selected' : '' %>>Noite</option>
+        </select><br>
+
+        <label>Salário:</label>
+        <input type="number" name="salario" step="0.01" value="<%= Garcon.salario %>" required><br>
+
+        <label>Data de contratação:</label>
+        <input type="date" name="dataContratacao" value="<%= Garcon.dataContratacao.toISOString().split('T')[0] %>"><br>
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco" value="<%= Garcon.endereco %>"><br>
+
+        <label>Ativo:</label>
+        <input type="checkbox" name="ativo" <%= Garcon.ativo ? 'checked' : '' %>><br>
+
+        <label>Notas do admin:</label>
+        <textarea name="adminNotes" rows="3"><%= Garcon.adminNotes %></textarea><br>
+
+        <button type="submit" class="btn submit">Submeter edição</button>
+    </form>
+</div>
+
+<%- include('../rodape.ejs') %>

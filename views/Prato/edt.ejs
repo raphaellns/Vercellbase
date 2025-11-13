@@ -1,0 +1,38 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Editar Prato</h1>
+
+<div style="margin-bottom: 24px;">
+    <a href="/Prato/lst" class="btn">Listar</a>
+</div>
+
+<div>
+    <form action="/Prato/edt/<%= Prato.id %>" method="post" enctype="multipart/form-data" class="form-visual">
+        <label>ID:</label>
+        <input type="text" name="id" value="<%= Prato.id %>" disabled><br>
+
+        <label>Nome do prato:</label>
+        <input type="text" name="nome" value="<%= Prato.nome %>" required><br>
+
+        <label>Descrição:</label>
+        <textarea name="descricao" rows="3" required><%= Prato.descricao %></textarea><br>
+
+        <label>Preço (R$):</label>
+        <input type="number" name="preco" step="0.01" value="<%= Prato.preco %>" required><br>
+
+        <label>Categoria:</label>
+        <input type="text" name="categoria" value="<%= Prato.categoria %>" required><br>
+
+        <label>Imagem do prato (atualize se quiser):</label>
+        <input type="file" name="imagem" accept="image/*"><br>
+
+        <label>
+            <input type="checkbox" name="destaque" <%= Prato.destaque ? 'checked' : '' %> >
+            Marcar como prato em destaque
+        </label><br>
+
+        <button type="submit" class="btn submit">Submeter edição</button>
+    </form>
+</div>
+
+<%- include('../rodape.ejs') %>

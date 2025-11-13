@@ -1,0 +1,20 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Editar Categoria</h1>
+<div style="margin-bottom: 24px;">
+    <a href="/Categoria/lst" class="btn">Listar</a>
+</div>
+<div>
+    <form method="post" class="form-visual">
+        <label>ID:</label>
+        <input type="text" name="id" value="<%= Categoria.id %>" disabled><br>
+        <label>Digite o novo nome:</label>
+        <input type="text" name="nome" value="<%= Categoria.nome %>" required><br>
+        <label>Nova descrição:</label>
+        <input type="text" name="descricao" value="<%= Categoria.descricao %>"><br>
+
+        <button type="submit" class="btn submit">Submeter edição</button>
+    </form>
+</div>
+
+<%- include('../rodape.ejs') %>

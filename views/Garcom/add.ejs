@@ -1,0 +1,45 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1>Adicionar Garçom</h1>
+<div style="margin-bottom: 24px;">
+    <a href="/Garcom/lst" class="btn">Listar</a>
+</div>
+<div>
+    <form method="post">
+        <label>Nome:</label>
+        <input type="text" name="nome" required><br>
+
+        <label>Telefone:</label>
+        <input type="text" name="telefone" required><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required><br>
+
+        <label>Turno:</label>
+        <select name="turno" required>
+            <option value="">--Selecione--</option>
+            <option value="Manhã">Manhã</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noite">Noite</option>
+        </select><br>
+
+        <label>Salário:</label>
+        <input type="number" name="salario" step="0.01" required><br>
+
+        <label>Data de contratação:</label>
+        <input type="date" name="dataContratacao"><br>
+
+        <label>Endereço:</label>
+        <input type="text" name="endereco"><br>
+
+        <label>Ativo:</label>
+        <input type="checkbox" name="ativo" checked><br>
+
+        <label>Notas dos chefes:</label>
+        <textarea name="adminNotes" rows="3"></textarea><br>
+
+        <button type="submit" class="btn submit">Cadastrar</button>
+    </form>
+</div>
+
+<%- include('../rodape.ejs') %>

@@ -1,0 +1,36 @@
+<%- include('../cabecalho.ejs') %>
+
+<h1 style="text-align:center;">Bebidas</h1>
+<a href="/Bebida/add" class="btn add">Adicionar Bebida</a>
+
+<form method="post">
+    <label>Buscar bebida:</label>
+    <input type="text" name="bebida">
+    <button type="submit" class="btn submit">Procurar</button>
+</form>
+
+<table class="curso-table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>ID</th>
+            <th colspan="2">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for (const b of Bebidas) { %>
+            <tr>
+                <td><%= b.nome %></td>
+                <td><%= b.descricao %></td>
+                <td>R$ <%= b.preco.toFixed(2) %></td>
+                <td><%= b._id %></td>
+                <td><a href="/Bebida/edt/<%= b._id %>" class="btn edit">Editar</a></td>
+                <td><a href="/Bebida/del/<%= b._id %>" class="btn delete" onclick="return confirm('Excluir?')">Excluir</a></td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<%- include('../rodape.ejs') %>
