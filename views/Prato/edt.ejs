@@ -3,36 +3,46 @@
 <h1>Editar Prato</h1>
 
 <div style="margin-bottom: 24px;">
-    <a href="/Prato/lst" class="btn">Listar</a>
+    <a href="/Prato/lst" class="btn" style="background:#c49b63;">Voltar à Lista</a>
 </div>
 
-<div>
-    <form action="/Prato/edt/<%= Prato.id %>" method="post" enctype="multipart/form-data" class="form-visual">
-        <label>ID:</label>
-        <input type="text" name="id" value="<%= Prato.id %>" disabled><br>
+<div class="form-card">
 
-        <label>Nome do prato:</label>
-        <input type="text" name="nome" value="<%= Prato.nome %>" required><br>
+    <form action="/Prato/edt/<%= Prato.id %>" method="post" enctype="multipart/form-data">
 
-        <label>Descrição:</label>
-        <textarea name="descricao" rows="3" required><%= Prato.descricao %></textarea><br>
+        <div class="form-group">
+            <label>ID:</label>
+            <input type="text" value="<%= Prato.id %>" disabled>
+        </div>
 
-        <label>Preço (R$):</label>
-        <input type="number" name="preco" step="0.01" value="<%= Prato.preco %>" required><br>
+        <div class="form-group">
+            <label>Nome do prato:</label>
+            <input type="text" name="nome" value="<%= Prato.nome %>" required>
+        </div>
 
-        <label>Categoria:</label>
-        <input type="text" name="categoria" value="<%= Prato.categoria %>" required><br>
+        <div class="form-group">
+            <label>Descrição:</label>
+            <textarea name="descricao" rows="3" required><%= Prato.descricao %></textarea>
+        </div>
 
-        <label>Imagem do prato (atualize se quiser):</label>
-        <input type="file" name="imagem" accept="image/*"><br>
+        <div class="form-group">
+            <label>Preço (R$):</label>
+            <input type="number" name="preco" step="0.01" value="<%= Prato.preco %>" required>
+        </div>
 
-        <label>
-            <input type="checkbox" name="destaque" <%= Prato.destaque ? 'checked' : '' %> >
-            Marcar como prato em destaque
-        </label><br>
+        <div class="form-group">
+            <label>Categoria:</label>
+            <input type="text" name="categoria" value="<%= Prato.categoria %>" required>
+        </div>
 
-        <button type="submit" class="btn submit">Submeter edição</button>
+        <div class="form-group">
+            <label>Imagem do prato (atualize se quiser):</label>
+            <input type="file" name="imagem" accept="image/*">
+        </div>
+
+        <button type="submit" class="btn submit">Salvar Alterações</button>
     </form>
+
 </div>
 
 <%- include('../rodape.ejs') %>

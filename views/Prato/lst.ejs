@@ -4,18 +4,7 @@
 <a href="/Prato/add" class="btn add" style="margin-bottom:32px;">Adicionar prato</a>
 
 <table class="curso-table" style="margin-top:24px;">
-    <thead>
-        <tr style="background:#e9ecef; color:#333;">
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>Categoria</th>
-            <th>Destaque</th>
-            <th>ID</th>
-            <th>Imagem</th>
-            <th colspan="2" style="text-align:center;">Ações</th>
-        </tr>
-    </thead>
+    
     <tbody>
 
         <form method="post">
@@ -24,32 +13,39 @@
             <button type="submit" class="btn submit">Procurar</button>
         </form>
 
-        <% for (const {nome, descricao, preco, categoria, destaque, imagem, id} of Pratos) { %>
-        <tr>
-            <td><%= nome %></td>
-            <td><%= descricao %></td>
-            <td>R$<%= preco %></td>
-            <td><%= categoria %></td>
-            <td><%= destaque ? 'Sim' : 'Não' %></td>
-            <td><%= id %></td>
-            <td>
-                <% if (imagem) { %>
-                    <img src="<%= imagem %>" width="150" height="150" alt="Imagem do prato">
-                <% } %>
-            </td>
-            <td>
-                <a href="/Prato/edt/<%= id %>" class="btn edit">
-                    <i class="fa-solid fa-pen"></i>&nbsp;Editar prato
-                </a>
-            </td>
-            <td>
-                <a href="/Prato/del/<%= id %>" class="btn delete"
-                   onclick="return confirm('Tem certeza que deseja excluir este prato?')">
-                   <i class="fa-solid fa-box-archive"></i>&nbsp;Excluir prato
-                </a>
-            </td>
-        </tr>
-        <% } %>
+        <div class="pratos-grid">
+
+    <% for (const {nome, descricao, preco, categoria, destaque, imagem, id} of Pratos) { %>
+
+        <div class="card-prato <%= destaque ? 'destaque' : '' %>">
+
+            <% if (imagem) { %>
+            <img src="<%= imagem %>" alt="Imagem do prato">
+            <% } %>
+
+            <div class="card-conteudo">
+                <h3><%= nome %></h3>
+
+                <p class="card-desc"><%= descricao %></p>
+
+                <span class="card-categoria"><%= categoria %></span>
+
+                <p class="card-preco">R$ <%= preco %></p>
+
+                <div class="card-actions">
+                    <a href="/Prato/edt/<%= id %>" class="btn edit">Editar</a>
+                    <a href="/Prato/del/<%= id %>" class="btn delete"
+                       onclick="return confirm('Tem certeza que deseja excluir este prato?')">
+                       Excluir
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    <% } %>
+
+</div>
     </tbody>
 </table>
 

@@ -1,36 +1,52 @@
 <%- include('../cabecalho.ejs') %>
 
-<h1 style="text-align:center;">Bebidas</h1>
+<h1>Bebidas</h1>
+
 <a href="/Bebida/add" class="btn add">Adicionar Bebida</a>
 
+<!-- Busca -->
 <form method="post">
     <label>Buscar bebida:</label>
     <input type="text" name="bebida">
     <button type="submit" class="btn submit">Procurar</button>
 </form>
 
-<table class="curso-table">
-    <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Preço</th>
-            <th>ID</th>
-            <th colspan="2">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% for (const b of Bebidas) { %>
-            <tr>
-                <td><%= b.nome %></td>
-                <td><%= b.descricao %></td>
-                <td>R$ <%= b.preco.toFixed(2) %></td>
-                <td><%= b._id %></td>
-                <td><a href="/Bebida/edt/<%= b._id %>" class="btn edit">Editar</a></td>
-                <td><a href="/Bebida/del/<%= b._id %>" class="btn delete" onclick="return confirm('Excluir?')">Excluir</a></td>
-            </tr>
-        <% } %>
-    </tbody>
-</table>
+<!-- GRID DE BEBIDAS -->
+<div class="pratos-grid">
+
+    <% for (const b of Bebidas) { %>
+
+        <div class="card-prato">
+
+            <!-- IMAGEM (se existir) -->
+            <% if (b.imagem) { %>
+                <img src="<%= b.imagem %>" alt="Imagem da bebida">
+            <% } else { %>
+                <img src="https://via.placeholder.com/500x300?text=Bebida" alt="Imagem padrão">
+            <% } %>
+
+            <div class="card-conteudo">
+
+                <h3><%= b.nome %></h3>
+
+                <p class="card-desc"><%= b.descricao %></p>
+
+                <p class="card-preco">R$ <%= b.preco.toFixed(2) %></p>
+
+                <div class="card-actions">
+                    <a href="/Bebida/edt/<%= b._id %>" class="btn edit">Editar</a>
+                    <a href="/Bebida/del/<%= b._id %>" class="btn delete"
+                       onclick="return confirm('Excluir?')">
+                        Excluir
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    <% } %>
+
+</div>
 
 <%- include('../rodape.ejs') %>

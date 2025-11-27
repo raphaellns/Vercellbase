@@ -1,14 +1,26 @@
-<%-include('cabecalho.ejs')%>
-    <h1>Bem-vindo ao CRUD DAW II</h1>
-    <p>Um CRUD (Create, Read, Update, Delete) é uma aplicação fundamental no desenvolvimento web, pois representa as quatro operações básicas de manipulação de dados em um sistema. Desenvolver um CRUD em DAW II permite aplicar na prática os conceitos aprendidos sobre back-end, front-end e banco de dados, integrando todas as camadas de uma aplicação. Além disso, proporciona experiência em:
+<%- include('cabecalho.ejs') %>
 
-Modelagem e persistência de dados em um banco de dados relacional ou não relacional;
+<div class="home-container">
 
-Interação entre cliente e servidor, utilizando rotas, requisições e respostas;
+    <h1 class="home-title">Restaurante Sabor da Casa</h1>
+    <p class="home-subtitle">Tradição, elegância e o melhor da gastronomia artesanal.</p>
 
-Validação e tratamento de dados, garantindo segurança e consistência;
+    <div class="home-card">
+        <p>
+            Bem-vindo ao sistema de gestão do <strong>Sabor da Casa</strong>, onde administramos pratos, bebidas,
+            categorias e equipe com praticidade e eficiência.
+        </p>
 
-Usabilidade e organização do código, seguindo boas práticas de desenvolvimento.
+        <p>
+            Aqui você pode controlar o cardápio do restaurante, organizar informações dos funcionários,
+            cadastrar novos itens e manter tudo sempre atualizado.
+        </p>
 
-Em resumo, o CRUD funciona como um exercício completo que consolida os conhecimentos da disciplina e serve como base para aplicações web mais complexas, já que praticamente todo sistema moderno utiliza operações de criação, consulta, atualização e exclusão de dados.</p>
- <%-include('rodape.ejs')%>
+        <p>
+            Utilize o menu acima para navegar entre as seções e explorar todos os recursos do sistema.
+        </p>
+    </div>
+
+</div>
+
+<%- include('rodape.ejs') %>
